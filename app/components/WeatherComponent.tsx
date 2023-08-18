@@ -37,7 +37,7 @@ const WeatherComponent = ({ city }) => {
 					{/* Render other weather information */}
 				</View>
 			) : (
-				<Text>Loading weather data...</Text>
+				<Text style={styles.text}>Loading weather data...</Text>
 			)}
 		</View>
 	);
