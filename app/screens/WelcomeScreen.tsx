@@ -1,34 +1,20 @@
 import React from "react";
-import {
-	View,
-	ImageBackground,
-	StyleSheet,
-	Image,
-	Text,
-	Pressable,
-} from "react-native";
-import HomeScreen from "./HomeScreen";
+import { View, StyleSheet, Image, Text, Pressable } from "react-native";
 
 export default function WelcomeScreen({ navigation }) {
 	const loginHandler = () => {
-		navigation.navigate("Home");
+		navigation.navigate("Main");
 	};
 
 	const registerHandler = () => {
-		navigation.navigate("Home");
+		navigation.navigate("Main");
 	};
 
 	return (
-		<ImageBackground
-			style={styles.background}
-			source={require("../assets/background.png")}
-		>
+		<View>
 			<View style={styles.container}>
-				<Image
-					style={styles.logo}
-					source={require("../assets/adaptive-icon.png")}
-				/>
-				<Text style={styles.heading}>API Calls App</Text>
+				<Image style={styles.logo} source={require("../assets/logo.png")} />
+				<Text style={styles.heading}>Bigger Picture News</Text>
 			</View>
 			<Pressable style={styles.button} onPress={loginHandler}>
 				<Text style={styles.text}>Login</Text>
@@ -36,7 +22,7 @@ export default function WelcomeScreen({ navigation }) {
 			<Pressable style={styles.button} onPress={registerHandler}>
 				<Text style={styles.text}>Register</Text>
 			</Pressable>
-		</ImageBackground>
+		</View>
 	);
 }
 
@@ -46,7 +32,7 @@ const styles = StyleSheet.create({
 		alignSelf: "center",
 		top: 20,
 		fontSize: 40,
-		color: "#fff",
+		color: "#272727",
 	},
 	background: {
 		flex: 1,
@@ -60,10 +46,11 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 32,
 		margin: 10,
 		borderRadius: 4,
-		elevation: 3,
+		elevation: 0,
 		width: "80%",
 		backgroundColor: "#dcd",
-		bottom: 40,
+		top: 680,
+		alignSelf: "center",
 	},
 	text: {
 		fontSize: 16,
@@ -79,8 +66,9 @@ const styles = StyleSheet.create({
 		top: 80,
 	},
 	container: {
-		position: "absolute",
+		position: "relative",
 		top: 70,
 		alignItems: "center",
+		backgroundColor: "#272727",
 	},
 });

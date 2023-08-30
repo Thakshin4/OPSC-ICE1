@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import axios from "axios";
+import { WEATHER_API_KEY, city } from "../config/config";
 
-const WeatherComponent = ({ city }) => {
+const WeatherComponent = () => {
 	const [weatherData, setWeatherData] = useState(null);
 
 	useEffect(() => {
@@ -14,7 +15,7 @@ const WeatherComponent = ({ city }) => {
 			const response = await axios.get(
 				`https://api.api-ninjas.com/v1/weather?city=${city}`,
 				{
-					headers: { "X-Api-Key": "WVq1W1+NoQ08KSoMK/nmlQ==2OaG3uWJJOm5uXdB" },
+					headers: { "X-Api-Key": WEATHER_API_KEY },
 					responseType: "json",
 				}
 			);

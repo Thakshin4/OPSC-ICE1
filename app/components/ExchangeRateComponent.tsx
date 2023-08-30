@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import axios from "axios";
+import { RATE_API_KEY, currencyFrom, currencyTo } from "../config/config";
 
 // const ExchangeRateComponent = (currencyFrom, currencyTo) => {
 const ExchangeRateComponent = () => {
@@ -13,10 +14,9 @@ const ExchangeRateComponent = () => {
 	const fetchExchangeRate = async () => {
 		try {
 			const response = await axios.get(
-				// `https://api.api-ninjas.com/v1/exchangerate?pair=${currencyFrom}_${currencyTo}`,
-				`https://api.api-ninjas.com/v1/exchangerate?pair=ZAR_USD`,
+				`https://api.api-ninjas.com/v1/exchangerate?pair=${currencyFrom}_${currencyTo}`,
 				{
-					headers: { "X-Api-Key": "WVq1W1+NoQ08KSoMK/nmlQ==2OaG3uWJJOm5uXdB" },
+					headers: { "X-Api-Key": RATE_API_KEY },
 					responseType: "json",
 				}
 			);
@@ -33,10 +33,8 @@ const ExchangeRateComponent = () => {
 				<View>
 					<Text style={styles.text}>Exchange Rate:</Text>
 					<Text style={styles.text}>
-						1 ZAR = {exchangeRateData.exchange_rate} USD
+						1 USD = {exchangeRateData.exchange_rate} ZAR
 					</Text>
-
-					{/* Render other exchange rate information */}
 				</View>
 			) : (
 				<Text style={styles.text}>Loading exchange rate data...</Text>

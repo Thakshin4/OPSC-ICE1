@@ -1,24 +1,10 @@
 import React from "react";
-import { Text, View, StyleSheet, ImageBackground } from "react-native";
-import WeatherComponent from "../components/WeatherComponent";
-import ExchangeRateComponent from "../components/ExchangeRateComponent";
+import { Text, View, StyleSheet } from "react-native";
 import NewsComponent from "../components/NewsComponent";
 
 // Main
-function HomeScreen() {
-	return (
-		<View>
-			<View style={styles.container}>
-				<View style={styles.weather}>
-					<WeatherComponent />
-				</View>
-				<View style={styles.rate}>
-					{<ExchangeRateComponent />}
-					{/* {<ExchangeRateComponent currencyFrom="ZAR" currencyTo="USD" /> */}
-				</View>
-			</View>
-		</View>
-	);
+function NewsScreen() {
+	return <NewsComponent />;
 }
 
 const styles = StyleSheet.create({
@@ -30,21 +16,28 @@ const styles = StyleSheet.create({
 	weather: {
 		position: "absolute",
 		alignSelf: "center",
+		top: 100,
 		backgroundColor: "#272727",
 		color: "#fff",
 		padding: 20,
 		borderRadius: 10,
-		width: 400,
 	},
 	rate: {
 		position: "absolute",
 		alignSelf: "center",
-		top: 120,
+		top: 240,
 		backgroundColor: "#272727",
 		color: "#fff",
 		padding: 20,
 		borderRadius: 10,
-		width: 400,
+	},
+	news: {
+		position: "absolute",
+		alignSelf: "center",
+		backgroundColor: "#272727",
+		color: "#fff",
+		padding: 20,
+		borderRadius: 10,
 	},
 	container: {
 		position: "absolute",
@@ -56,4 +49,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default HomeScreen;
+export default NewsScreen;
